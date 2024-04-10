@@ -19,6 +19,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable("id")Long id){
+//        throw new RuntimeException("haha you noob");
         return productService.getProductById(id);
     }
     @GetMapping("")

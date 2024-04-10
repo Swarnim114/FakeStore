@@ -1,6 +1,7 @@
 package org.example.fakestoreapi.services;
 
 import org.example.fakestoreapi.dtos.FakeStoreProductDto;
+import org.example.fakestoreapi.exceptions.ProductNotFoundException;
 import org.example.fakestoreapi.models.Category;
 import org.example.fakestoreapi.models.Product;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class FakeStoreProductService  implements ProductService{
                         FakeStoreProductDto.class);
 
         if (fakeStoreProductDto == null) {
-            return null;
+            throw new ProductNotFoundException(id, "Please pass a valid productId");
         }
         return convertFakeStoreProductDtoToProduct(fakeStoreProductDto);
     }
